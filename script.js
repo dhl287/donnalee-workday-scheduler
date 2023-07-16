@@ -2,8 +2,6 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 var saveBtn = $('.saveBtn');
-var hourNine = $('hour-9');
-var hourNineText = hourNine.children.eq(2);
 
 function handleSave (event) {
   event.preventDefault();
@@ -49,4 +47,17 @@ function handleSave (event) {
 
   var today = dayjs();
   $('#currentDay').text(today.format('MMM DD, YYYY'));
-  
+
+  var currentHour = dayjs().hour();
+
+  $('.time-block').each(function() {
+  var blockHour = parseInt($(this).attr('id').split('-')[1]);
+
+  if (blockHour < currentHour) {
+    $(this).removeClass('present future').addClass('past');
+  } else if (blockHour === currentHour) {
+    $(this).removeClass('past future').addClass('present');
+  } else {
+    $(this).removeClass('past present').addClass('future');
+  }
+});
