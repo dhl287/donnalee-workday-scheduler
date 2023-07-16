@@ -2,25 +2,27 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 var saveBtn = $('.saveBtn');
+var input = $('textarea');
+var hourNine = $('textarea[description="description"]');
 
-function handleSave (event) {
-  event.preventDefault();
+function handleSave (id, value) {
+  localStorage.setItem(id, value);
 
-  saveBtn.on('click', function () {
-    
-  })
 }
 
-//function handleSaveSubmit (event) {
-  //event.preventDefault();
+$(document).ready(function() {
+  saveBtn.on('click', function () {
+  $('.time-block').each(function() {
+    var blockId = $(this).attr('id');
+    var savedInput = localStorage.getItem(blockId);
 
-  //saveBtn.on("click", function() {
-    
+    if (savedInput) {
+      $(this).find('textarea').val(savedInput);
+  
+    }
+  });
+})});
 
-//}
-//saveBtn.on( "click", function() {
-  //console.log('First Name:', hourNine.val());
-  //console.log( $( this ).text(val()));
 
 
 
@@ -37,6 +39,20 @@ function handleSave (event) {
     // past, present, and future classes? How can Day.js be used to get the
     // current hour in 24-hour time?
 
+    var currentHour = dayjs().hour();
+
+    $('.time-block').each(function() {
+    var blockHour = parseInt($(this).attr('id').split('-')[1]);
+  
+    if (blockHour < currentHour) {
+      $(this).removeClass('present future').addClass('past');
+    } else if (blockHour === currentHour) {
+      $(this).removeClass('past future').addClass('present');
+    } else {
+      $(this).removeClass('past present').addClass('future');
+    }
+  });
+
     //
     // TODO: Add code to get any user input that was saved in localStorage and set
     // the values of the corresponding textarea elements. HINT: How can the id
@@ -47,17 +63,3 @@ function handleSave (event) {
 
   var today = dayjs();
   $('#currentDay').text(today.format('MMM DD, YYYY'));
-
-  var currentHour = dayjs().hour();
-
-  $('.time-block').each(function() {
-  var blockHour = parseInt($(this).attr('id').split('-')[1]);
-
-  if (blockHour < currentHour) {
-    $(this).removeClass('present future').addClass('past');
-  } else if (blockHour === currentHour) {
-    $(this).removeClass('past future').addClass('present');
-  } else {
-    $(this).removeClass('past present').addClass('future');
-  }
-});
