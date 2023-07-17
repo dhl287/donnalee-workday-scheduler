@@ -5,13 +5,14 @@ var saveBtn = $('.saveBtn');
 var input = $('textarea');
 var hourNine = $('textarea[description="description"]');
 
+saveBtn.addEventListener('click', handleSave);
+
 function handleSave (id, value) {
   localStorage.setItem(id, value);
 
 }
 
 $(document).ready(function() {
-  saveBtn.on('click', function () {
   $('.time-block').each(function() {
     var blockId = $(this).attr('id');
     var savedInput = localStorage.getItem(blockId);
@@ -21,7 +22,7 @@ $(document).ready(function() {
   
     }
   });
-})});
+});
 
 
 
