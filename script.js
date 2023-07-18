@@ -5,23 +5,28 @@ var saveBtn = $('.saveBtn');
 var input = $('textarea');
 var hourNine = $('textarea[description="description"]');
 
-saveBtn.addEventListener('click', handleSave);
-
-function handleSave (id, value) {
-  localStorage.setItem(id, value);
-
-}
-
+// This function ensures that the code executes when the page finishes loading
 $(document).ready(function() {
-  $('.time-block').each(function() {
-    var blockId = $(this).attr('id');
-    var savedInput = localStorage.getItem(blockId);
-
-    if (savedInput) {
-      $(this).find('textarea').val(savedInput);
+  var saveBtn = $('.saveBtn');
   
+  saveBtn.each(function() {
+    $(this).click(handleSave);
+  });
+
+  // Load stored values when the page loads
+  $('.time-block').each(function() {
+    var timeBlockId = $(this).attr('id', 'hour-9, hour-10, hour-11, hour-12, hour-13, hour-14, hour-15, hour-16');
+    var storedValue = localStorage.getItem(timeBlockId);
+    if (storedValue) {
+      $(this).find('.description').val(storedValue);
     }
   });
+
+  function handleSave() {
+    var timeBlockId = $(this).closest('.time-block').attr('id', 'hour-9, hour-10, hour-11, hour-12, hour-13, hour-14, hour-15, hour-16');
+    var userInput = $(this).prev('.description').val();
+    localStorage.setItem(timeBlockId, userInput);
+  }
 });
 
 
@@ -60,7 +65,6 @@ $(document).ready(function() {
     // attribute of each time-block be used to do this?
     //
     // TODO: Add code to display the current date in the header of the page.
-
 
   var today = dayjs();
   $('#currentDay').text(today.format('MMM DD, YYYY'));
