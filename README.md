@@ -11,7 +11,7 @@ The Workday Scheduler already had a foundation with the provided starter code, b
 
 The current date is visible in the header of the body. The example shows that the current date is July 18, 2023.
 
-ADD IMAGE
+![image](https://github.com/dhl287/donnalee-workday-scheduler/assets/133473429/f60723d0-9693-41e5-bf82-e1dbf9d883f7)
 
 The time blocks change colors depending on whether they are past (#d3d3d3), present (#ff6961), or future (#77dd77).
 
