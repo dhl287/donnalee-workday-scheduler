@@ -13,13 +13,13 @@ The current date is visible in the header of the body. The example shows that th
 
 ![image](https://github.com/dhl287/donnalee-workday-scheduler/assets/133473429/f60723d0-9693-41e5-bf82-e1dbf9d883f7)
 
-The time blocks change colors depending on whether they are past (#d3d3d3), present (#ff6961), or future (#77dd77).
+The time blocks change colors depending on whether they are past (#d3d3d3), present (#ff6961), or future (#77dd77). The image below only shows the colors used for the past and present, but the time blocks change colors properly according to the current, past, and future hour.
 
-ADD IMAGE
+![image](https://github.com/dhl287/donnalee-workday-scheduler/assets/133473429/c72cad2a-ca6c-4da5-a561-9a232d17c047)
 
 When adding an event in the time block and clicking the button with the disk icon (save button), the event saves to the Workday Scheduler. When you refresh the page, the event is set and saved on the Workday Scheduler (local storage). The event will be removed when the user manually removes the event and clicks the button with the disk icon (save button).
 
-ADD IMAGE
+![image](https://github.com/dhl287/donnalee-workday-scheduler/assets/133473429/7dc1cac1-4451-45ea-8558-0b6184bbf174)
 
 The challenge has been deployed. 
 ADD DEPLOYED LINK
