@@ -22,7 +22,7 @@ When adding an event in the time block and clicking the button with the disk ico
 ![image](https://github.com/dhl287/donnalee-workday-scheduler/assets/133473429/7dc1cac1-4451-45ea-8558-0b6184bbf174)
 
 The challenge has been deployed. 
-ADD DEPLOYED LINK
+* [Deployed Link] https://dhl287.github.io/donnalee-workday-scheduler/ 
 
 ## Credits
 I would like to credit the following sources for study materials in adding all code: 
